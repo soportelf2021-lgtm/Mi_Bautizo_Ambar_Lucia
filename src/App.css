@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  text-align: center;
+
+}
+
+body{
+
+  overflow: hidden !important; 
+  position: fixed !important;
+}
+.font-sacramento {font-family: Sacramento, sans-serif;}  
+.font-classic {
+  font-family: 'Quattrocento', serif;
+}
+
+.font-cursive{
+  font-family: 'Edu NSW ACT Cursive', cursive; 
+}
+.font-tinos {font-family: 'Tinos', serif;}
+
+.gold-text {
+  display: inline-block; /* importante para que el ancho se ajuste al texto */
+  position: relative;    /* para que ::after sea relativo solo al texto */
+
+  font-weight: bold;
+  background: linear-gradient(
+    135deg,
+    #fff9c4 0%,
+    #ffe066 40%,
+    #ffcc33 60%,
+    #b8860b 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 3px 1px 1px #b8860b, 0 0 8px #ffffff;
+  overflow: visible;
+}
+
+/* Destello animado solo sobre el texto */
+.gold-text::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.6) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shineMove 2s infinite;
+  pointer-events: none;
+  mix-blend-mode: screen; /* hace que el brillo solo se mezcle con el texto */
+}
+
+@keyframes shineMove {
+  0% { left: -45%; }
+  100% { left: 60%; }
+}
+
+@media (min-height: 2300px) {
+  .titulo-principal { top: 80px !important; }
+  .nombre { top: 90px !important; }
+  .fecha { top: 80px !important; }
+}

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  base: '/Mi_Bautizo_Ambar_Lucia/', // 👈 Nombre exacto de tu repo
+  base: './', // 👈 usar ruta relativa para GitHub Pages
   plugins: [react(), tailwindcss()],
   optimizeDeps: {
     include: [
